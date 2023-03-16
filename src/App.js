@@ -2,11 +2,10 @@ import "./App.css";
 import styled from "styled-components";
 import SidebarDB from "./components/SidebarDB";
 import { useEffect, useState } from "react";
-import env from "react-dotenv";
-import axios from "axios";
 import { Blocks } from "react-loader-spinner";
 import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DatabaseService from "./services/DatabaseService";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -15,16 +14,7 @@ const App = () => {
     const [selectedTable, setSelectedTable] = useState("");
 
     useEffect(() => {
-        console.log(env.API_URL + "/databases");
-        axios
-            .get(env.API_URL + "/databases")
-            .then((response) => {
-                setDatabases(response.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        DatabaseService.getStructure(setDatabases);
     }, []);
 
     useEffect(() => {
@@ -33,6 +23,7 @@ const App = () => {
             setSelectedDb(databases[0].name);
             setSelectedTable(databases[0].tables[0].name);
         }
+        setLoading(false);
     }, [databases]);
 
     if (loading) {
@@ -45,7 +36,12 @@ const App = () => {
 
     return (
         <View className="App">
-            <SidebarDB databases={databases} setSelectedDb={setSelectedDb} setSelectedTable={setSelectedTable} />
+            <SidebarDB
+                databases={databases}
+                setSelectedDb={setSelectedDb}
+                setSelectedTable={setSelectedTable}
+                setDatabases={setDatabases}
+            />
             <MainArea>
                 <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>
 

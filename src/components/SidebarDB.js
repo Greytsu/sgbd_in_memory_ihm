@@ -7,7 +7,7 @@ const SidebarDB = (props) => {
         <View>
             <SidebarContainer>
                 <SidebarHeader>
-                    <h3>SGBD in memory</h3>
+                    <h4>SGBD in memory</h4>
                 </SidebarHeader>
                 <Sidebar>
                     <Menu>
@@ -18,6 +18,7 @@ const SidebarDB = (props) => {
                                     key={database}
                                     setSelectedDb={props.setSelectedDb}
                                     setSelectedTable={props.setSelectedTable}
+                                    setDatabases={props.setDatabases}
                                 />
                             );
                         })}

@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "API_URL": "http://127.0.0.1:3030",
   "APPDATA": "C:\\Users\\olivi\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_3908_EYCOTMOMNLUAPDMI",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_716_GLQKEPHKIQYPHGCE",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -53,7 +53,6 @@ window.env = {
   "NPM_PREFIX_NPM_CLI_JS": "C:\\Users\\olivi\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js",
   "NUMBER_OF_PROCESSORS": "24",
   "OneDrive": "C:\\Users\\olivi\\OneDrive",
-  "OneDriveConsumer": "C:\\Users\\olivi\\OneDrive",
   "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
   "OS": "Windows_NT",
   "Path": "D:\\SGBD In memory\\sgbd_in_memory_ihm\\node_modules\\.bin;D:\\SGBD In memory\\node_modules\\.bin;D:\\node_modules\\.bin;C:\\Users\\olivi\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Git\\cmd;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\Java\\apache-maven-3.8.4\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Users\\olivi\\AppData\\Local\\Programs\\Python\\Python39\\Scripts;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Go\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\olivi\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\olivi\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\olivi\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.2.1\\bin;C:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\heroku\\bin;C:\\Users\\olivi\\AppData\\Local\\gitkraken\\bin;C:\\Program Files\\JetBrains\\PyCharm 2021.3.2\\bin;;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2021.3.3\\bin;;C:\\Program Files\\Azure Data Studio\\bin;C:\\Users\\olivi\\go\\bin;C:\\Users\\olivi\\AppData\\Roaming\\npm;C:\\Program Files\\JetBrains\\GoLand 2022.3.1\\bin;;C:\\Users\\olivi\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\olivi\\.dotnet\\tools",
@@ -75,7 +74,7 @@ window.env = {
   "SystemRoot": "C:\\Windows",
   "TEMP": "C:\\Users\\olivi\\AppData\\Local\\Temp",
   "TERM_PROGRAM": "vscode",
-  "TERM_PROGRAM_VERSION": "1.76.0",
+  "TERM_PROGRAM_VERSION": "1.76.1",
   "TMP": "C:\\Users\\olivi\\AppData\\Local\\Temp",
   "USERDOMAIN": "DESKTOP-9U8C2VG",
   "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-9U8C2VG",
@@ -86,6 +85,6 @@ window.env = {
   "VSCODE_GIT_ASKPASS_EXTRA_ARGS": "--ms-enable-electron-run-as-node",
   "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-  "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-3c092649de-sock",
+  "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-6abd1838b9-sock",
   "windir": "C:\\Windows"
 };
