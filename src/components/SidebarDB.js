@@ -1,5 +1,8 @@
+import { BiRefresh } from "react-icons/bi";
+import { FcAddDatabase } from "react-icons/fc";
+import { Menu, Sidebar } from "react-pro-sidebar";
 import styled from "styled-components";
-import { Sidebar, Menu } from "react-pro-sidebar";
+import DatabaseService from "../services/DatabaseService";
 import SidebarMenu from "./SidebarMenu";
 
 const SidebarDB = (props) => {
@@ -11,6 +14,14 @@ const SidebarDB = (props) => {
                 </SidebarHeader>
                 <Sidebar>
                     <Menu>
+                        <HeaderMenu>
+                            <Btn onClick={() => console.log("add")}>
+                                <FcAddDatabase size="2em" />
+                            </Btn>
+                            <Btn onClick={() => DatabaseService.getStructure(props.setDatabases)}>
+                                <BiRefresh size="2em" />
+                            </Btn>
+                        </HeaderMenu>
                         {props.databases.map((database) => {
                             return (
                                 <SidebarMenu
@@ -28,6 +39,17 @@ const SidebarDB = (props) => {
         </View>
     );
 };
+
+const Btn = styled.button`
+    border: 0;
+    margin: 10px;
+`;
+
+const HeaderMenu = styled.div`
+    display: flex;
+    flex: row;
+    justify-content: space-around;
+`;
 
 const View = styled.div`
     display: flex;

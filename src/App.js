@@ -1,10 +1,10 @@
-import "./App.css";
-import styled from "styled-components";
-import SidebarDB from "./components/SidebarDB";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { Blocks } from "react-loader-spinner";
-import Table from "react-bootstrap/Table";
-import "bootstrap/dist/css/bootstrap.min.css";
+import styled from "styled-components";
+import "./App.css";
+import SidebarDB from "./components/SidebarDB";
+import Routes from "./config/Routes";
 import DatabaseService from "./services/DatabaseService";
 
 const App = () => {
@@ -44,36 +44,7 @@ const App = () => {
             />
             <MainArea>
                 <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>
-
-                <Table striped bordered hover variant="dark">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </Table>
+                <Routes></Routes>
             </MainArea>
         </View>
     );
