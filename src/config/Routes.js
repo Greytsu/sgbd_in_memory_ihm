@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes as RoutesGroup } from "react-router-dom";
 import styled from "styled-components";
 import CreateDatabase from "../pages/CreateDatabase";
 
@@ -6,12 +6,13 @@ const Routes = () => {
     return (
         <View>
             <Router>
-                <Route exact path="/createDatabase">
-                    <CreateDatabase />
-                </Route>
-                {/* <Route exact path="/playlistsDetails/:id">
+                <RoutesGroup>
+                    <Route exact path="/" element={<CreateDatabase />}></Route>
+                    <Route exact path="/createDatabase" element={<CreateDatabase />}></Route>
+                    {/* <Route exact path="/databases/:id/">
                             <PlaylistDetails loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
                         </Route> */}
+                </RoutesGroup>
             </Router>
         </View>
     );

@@ -9,7 +9,7 @@ const setSelectedItems = (dbName, setSelectedDb, tableName, setSelectedTable) =>
 const SidebarMenu = (props) => {
     return (
         <>
-            <SubMenu label={props.database.name}>
+            <SubMenu label={props.database.name} key={props.database.name}>
                 {props.database.tables.map((table) => {
                     return (
                         <MenuItem

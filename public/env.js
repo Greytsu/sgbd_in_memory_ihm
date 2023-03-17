@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "API_URL": "http://127.0.0.1:3030",
   "APPDATA": "C:\\Users\\olivi\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_716_GLQKEPHKIQYPHGCE",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_12576_YNAQCEVZHQMUYKQR",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -74,7 +74,7 @@ window.env = {
   "SystemRoot": "C:\\Windows",
   "TEMP": "C:\\Users\\olivi\\AppData\\Local\\Temp",
   "TERM_PROGRAM": "vscode",
-  "TERM_PROGRAM_VERSION": "1.76.1",
+  "TERM_PROGRAM_VERSION": "1.76.2",
   "TMP": "C:\\Users\\olivi\\AppData\\Local\\Temp",
   "USERDOMAIN": "DESKTOP-9U8C2VG",
   "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-9U8C2VG",
@@ -85,6 +85,7 @@ window.env = {
   "VSCODE_GIT_ASKPASS_EXTRA_ARGS": "--ms-enable-electron-run-as-node",
   "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-  "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-6abd1838b9-sock",
-  "windir": "C:\\Windows"
+  "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-0a9fa21f61-sock",
+  "windir": "C:\\Windows",
+  "__COMPAT_LAYER": "DetectorsAppHealth"
 };
