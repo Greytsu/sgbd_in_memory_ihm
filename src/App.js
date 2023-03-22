@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { Blocks } from "react-loader-spinner";
 import styled from "styled-components";
 import "./App.css";
@@ -36,6 +37,7 @@ const App = () => {
 
     return (
         <View className="App">
+            <Toaster position="top-right" reverseOrder={true} />
             <SidebarDB
                 databases={databases}
                 setSelectedDb={setSelectedDb}
