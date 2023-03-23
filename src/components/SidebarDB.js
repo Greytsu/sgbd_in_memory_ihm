@@ -4,8 +4,10 @@ import { Menu, Sidebar } from "react-pro-sidebar";
 import styled from "styled-components";
 import DatabaseService from "../services/DatabaseService";
 import SidebarMenu from "./SidebarMenu";
+import { useNavigate } from "react-router-dom";
 
 const SidebarDB = (props) => {
+    const navigate = useNavigate();
     return (
         <View>
             <SidebarContainer>
@@ -15,7 +17,7 @@ const SidebarDB = (props) => {
                 <Sidebar>
                     <Menu>
                         <HeaderMenu>
-                            <Btn onClick={() => console.log("createDatabase")}>
+                            <Btn onClick={() => navigate("/createDatabase")}>
                                 <FcAddDatabase size="2em" />
                             </Btn>
                             <Btn onClick={() => DatabaseService.getStructure(props.setDatabases)}>
@@ -26,7 +28,7 @@ const SidebarDB = (props) => {
                             return (
                                 <SidebarMenu
                                     database={database}
-                                    key={database}
+                                    key={database.name}
                                     setSelectedDb={props.setSelectedDb}
                                     setSelectedTable={props.setSelectedTable}
                                     setDatabases={props.setDatabases}
