@@ -15,7 +15,7 @@ const SidebarDB = (props) => {
                 <Sidebar>
                     <Menu>
                         <HeaderMenu>
-                            <Btn onClick={() => console.log("add")}>
+                            <Btn onClick={() => console.log("createDatabase")}>
                                 <FcAddDatabase size="2em" />
                             </Btn>
                             <Btn onClick={() => DatabaseService.getStructure(props.setDatabases)}>

@@ -19,7 +19,6 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        console.log(databases);
         if (databases.length > 0) {
             setSelectedDb(databases[0].name);
             setSelectedTable(databases[0].tables[0].name);
