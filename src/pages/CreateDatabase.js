@@ -106,15 +106,6 @@ const CreateDatabase = () => {
                     >
                         Save
                     </Button>
-                    <Button
-                        variant="success"
-                        size="lg"
-                        onClick={() => {
-                            console.log(tables);
-                        }}
-                    >
-                        log
-                    </Button>
                 </Area>
             </View>
         </>

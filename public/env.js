@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "API_URL": "http://127.0.0.1:3030",
   "APPDATA": "C:\\Users\\olivi\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_12576_YNAQCEVZHQMUYKQR",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\LOCAL\\crashpad_3280_YHNXWYRKYSHSXKRX",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -86,6 +86,5 @@ window.env = {
   "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\olivi\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-0a9fa21f61-sock",
-  "windir": "C:\\Windows",
-  "__COMPAT_LAYER": "DetectorsAppHealth"
+  "windir": "C:\\Windows"
 };

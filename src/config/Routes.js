@@ -9,10 +9,12 @@ import ReadTable from "../pages/ReadTable";
 import DatabaseService from "../services/DatabaseService";
 
 const Routes = () => {
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState();
     const [databases, setDatabases] = useState([]);
     const [selectedDb, setSelectedDb] = useState("");
     const [selectedTable, setSelectedTable] = useState("");
+    const [structure, setStructure] = useState(null);
+    const tables = [];
 
     useEffect(() => {
         DatabaseService.getStructure(setDatabases);
@@ -20,28 +22,45 @@ const Routes = () => {
 
     useEffect(() => {
         if (databases.length > 0) {
-            setSelectedDb(databases[0].name);
-            setSelectedTable(databases[0].tables[0].name);
+            databases.forEach((database) => {
+                DatabaseService.getTables(database.name, tables);
+            });
         }
-        setLoading(false);
     }, [databases]);
 
-    if (loading) {
+    useEffect(() => {
+        setTimeout(() => {
+            if (tables.length === databases.length && tables.length > 0) {
+                console.log(tables[0]);
+                setSelectedDb(tables[0].name);
+                setSelectedTable(tables[0].tables[0].name);
+                setStructure(tables);
+                setIsLoading(false);
+            }
+        }, 500);
+    }, [tables]);
+
+    useEffect(() => {
+        if (structure != null) setIsLoading(false);
+    }, [structure]);
+
+    if (isLoading) {
         return (
             <View className="App">
                 <Blocks visible={true} height="80" width="80" ariaLabel="blocks-loading" wrapperStyle={{}} wrapperClass="blocks-wrapper" />
             </View>
         );
     }
+
     return (
         <View className="App">
             <Toaster position="top-right" reverseOrder={true} />
             <Router>
                 <SidebarDB
-                    databases={databases}
+                    databases={structure}
                     setSelectedDb={setSelectedDb}
                     setSelectedTable={setSelectedTable}
-                    setDatabases={setDatabases}
+                    setDatabases={setStructure}
                 />
                 <MainArea>
                     <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>

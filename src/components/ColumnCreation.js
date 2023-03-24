@@ -33,7 +33,6 @@ const ColumnCreation = (props) => {
                     aria-label="Checkbox for following text input"
                     checked={props.column.isIndex}
                     onChange={(event) => {
-                        console.log(event.target.checked);
                         props.changeColumns(props.column.id, props.column.name, props.column.type, event.target.checked);
                     }}
                 />

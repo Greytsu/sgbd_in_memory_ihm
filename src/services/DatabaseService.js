@@ -14,6 +14,17 @@ const DatabaseService = {
             });
     },
 
+    getTables: (dbName, tables) => {
+        axios
+            .get(env.API_URL + "/databases/" + dbName + "/tables")
+            .then((response) => {
+                tables.push({ name: dbName, tables: response.data });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
     postDatabase: (dbName, setResponseCode) => {
         axios
             .post(env.API_URL + "/databases", {
