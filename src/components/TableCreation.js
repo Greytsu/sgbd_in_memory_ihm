@@ -6,23 +6,22 @@ import styled from "styled-components";
 import ColumnCreation from "./ColumnCreation";
 
 const TableCreation = (props) => {
-    const [tableName, setTableName] = useState("");
-    const [columns, setColumns] = useState([{ id: 1, name: "", type: "Type", index: false }]);
+    const [tableName, setTableName] = useState(props.table.name);
+    const [columns, setColumns] = useState(props.table.columns);
 
-    const changeColumns = (id, name, type, index) => {
-        setColumns(columns.map((item) => (item.id === id ? { ...item, name: name, type: type, index: index } : item)));
+    const changeColumns = (id, name, type, isIndex) => {
+        setColumns(columns.map((item) => (item.id === id ? { ...item, name: name, type: type, isIndex: isIndex } : item)));
     };
 
     const addColumn = () => {
-        if (columns[columns.length - 1].name === "") {
-        }
         setColumns([
             ...columns,
             {
                 id: columns[columns.length - 1].id + 1,
                 name: "",
                 type: "Type",
-                index: false,
+                isIndex: false,
+                responseCode: 0,
             },
         ]);
     };
