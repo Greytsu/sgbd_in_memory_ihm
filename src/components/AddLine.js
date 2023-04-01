@@ -3,6 +3,7 @@ import { Form, InputGroup } from "react-bootstrap";
 import { GrAdd } from "react-icons/gr";
 import styled from "styled-components";
 import DatabaseService from "../services/DatabaseService";
+import AddLineInput from "./AddLineInput";
 
 const AddLine = (props) => {
     const [data, setData] = useState({});
@@ -22,15 +23,16 @@ const AddLine = (props) => {
             <td>New line</td>
             {props.columns.map((column) => {
                 return (
-                    <td key={column.name}>
-                        <InputGroup size="sm" className="mb-3">
-                            <Form.Control
-                                aria-describedby="inputGroup-sizing-sm"
-                                onChange={(event) => handleChange(column.name, event.target.value)}
-                                placeholder={column.name}
-                            />
-                        </InputGroup>
-                    </td>
+                    <AddLineInput column={column} handleChange={handleChange} key={column.name} />
+                    // <td key={column.name}>
+                    //     <InputGroup size="sm" className="mb-3">
+                    //         <Form.Control
+                    //             aria-describedby="inputGroup-sizing-sm"
+                    //             onChange={(event) => handleChange(column.name, event.target.value)}
+                    //             placeholder={column.name}
+                    //         />
+                    //     </InputGroup>
+                    // </td>
                 );
             })}
             <td>

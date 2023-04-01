@@ -53,7 +53,7 @@ const DatabaseService = {
             .post(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas", data)
             .then((response) => {
                 toast.success("Successfully inserted data");
-                setDatas({ ...datas, data });
+                setDatas([...datas, response.data]);
             })
             .catch((error) => {
                 toast.error(error.response.data.error);
