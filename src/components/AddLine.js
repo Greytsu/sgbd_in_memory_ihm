@@ -12,7 +12,6 @@ const AddLine = (props) => {
     };
 
     const handleSave = () => {
-        console.log(data);
         DatabaseService.postData(props.selectedDb, props.selectedTable, data, props.tableDatas, props.setTableDatas);
     };
 

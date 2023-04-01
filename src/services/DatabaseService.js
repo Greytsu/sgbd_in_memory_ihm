@@ -48,12 +48,35 @@ const DatabaseService = {
     },
 
     postData: (dbName, tableName, data, datas, setDatas) => {
-        console.log(data);
         axios
             .post(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas", data)
             .then((response) => {
                 toast.success("Successfully inserted data");
                 setDatas([...datas, response.data]);
+            })
+            .catch((error) => {
+                toast.error(error.response.data.error);
+            });
+    },
+
+    putData: (dbName, tableName, data, datas, setDatas) => {
+        axios
+            .put(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas/" + data.id, { ...data, id: Number(data.id) })
+            .then((response) => {
+                toast.success("Successfully updated data");
+                setDatas(datas.map((newData) => (newData.id === data.id ? data : newData)));
+            })
+            .catch((error) => {
+                toast.error(error.response.data.error);
+            });
+    },
+
+    deleteData: (dbName, tableName, dataId, datas, setDatas) => {
+        axios
+            .delete(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas/" + dataId)
+            .then((response) => {
+                toast.success("Successfully deleted data");
+                setDatas(datas.filter((data) => data.id !== dataId));
             })
             .catch((error) => {
                 toast.error(error.response.data.error);

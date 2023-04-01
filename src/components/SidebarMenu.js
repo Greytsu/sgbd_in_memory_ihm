@@ -10,9 +10,6 @@ const setSelectedItems = (dbName, setSelectedDb, tableName, setSelectedTable, na
 
 const SidebarMenu = (props) => {
     const navigate = useNavigate();
-    useEffect(() => {
-        console.log("props.database", props.database);
-    }, []);
 
     return (
         <>

@@ -11,9 +11,6 @@ import { Blocks } from "react-loader-spinner";
 const SidebarDB = (props) => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (props.database) console.log("struct", props.databases);
-    }, [props.databases]);
     return (
         <View>
             <SidebarContainer>

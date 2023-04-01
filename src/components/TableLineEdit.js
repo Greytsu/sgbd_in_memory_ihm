@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
 import { GiCancel } from "react-icons/gi";
 import { MdOutlineDownloadDone } from "react-icons/md";
+import DatabaseService from "../services/DatabaseService";
+import AddLineInput from "./AddLineInput";
 
 const TableLineEdit = (props) => {
     const [data, setData] = useState(props.data);
@@ -10,24 +11,17 @@ const TableLineEdit = (props) => {
         setData({ ...data, [column]: value });
     };
 
-    const handleSave = () => {};
+    const handleSave = () => {
+        DatabaseService.putData(props.selectedDb, props.selectedTable, data, props.datas, props.setDatas);
+        props.setEditingLine(0);
+    };
 
     return (
         <>
             <tr key={props.data.id}>
                 <td>{props.data.id}</td>
                 {props.columns.map((column) => {
-                    return (
-                        <td key={column.name}>
-                            <InputGroup size="sm" className="mb-3">
-                                <Form.Control
-                                    aria-describedby="inputGroup-sizing-sm"
-                                    value={data[column.name]}
-                                    onChange={(event) => handleChange(column.name, event.target.value)}
-                                />
-                            </InputGroup>
-                        </td>
-                    );
+                    return <AddLineInput column={column} handleChange={handleChange} key={column.name} />;
                 })}
                 <td>
                     <MdOutlineDownloadDone onClick={() => handleSave()} />

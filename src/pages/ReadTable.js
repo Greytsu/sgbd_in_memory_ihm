@@ -13,17 +13,15 @@ const ReadTable = (props) => {
     const [datas, setDatas] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [editingLine, setEditingLine] = useState(0);
+
     useEffect(() => {
         if (props.selectedDb && props.selectedTable) {
-            console.log("props.selectedDb : ", props.selectedDb);
-            console.log("props.selectedTable : ", props.selectedTable);
             DatabaseService.getColumns(props.selectedDb, props.selectedTable, setColumns);
         }
     }, [props]);
 
     useEffect(() => {
         if (columns != null) {
-            console.log("columns : ", columns);
             DatabaseService.getDatas(props.selectedDb, props.selectedTable, setDatas);
         }
     }, [columns]);
@@ -64,9 +62,27 @@ const ReadTable = (props) => {
                     />
                     {datas.map((data) => {
                         return data.id === editingLine ? (
-                            <TableLineEdit data={data} columns={columns} key={data.id} setEditingLine={setEditingLine} />
+                            <TableLineEdit
+                                data={data}
+                                datas={datas}
+                                setDatas={setDatas}
+                                columns={columns}
+                                key={data.id}
+                                setEditingLine={setEditingLine}
+                                selectedDb={props.selectedDb}
+                                selectedTable={props.selectedTable}
+                            />
                         ) : (
-                            <TableLine data={data} columns={columns} key={data.id} setEditingLine={setEditingLine} />
+                            <TableLine
+                                data={data}
+                                datas={datas}
+                                setDatas={setDatas}
+                                columns={columns}
+                                key={data.id}
+                                setEditingLine={setEditingLine}
+                                selectedDb={props.selectedDb}
+                                selectedTable={props.selectedTable}
+                            />
                         );
                     })}
                 </tbody>

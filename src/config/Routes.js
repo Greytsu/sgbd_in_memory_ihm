@@ -64,11 +64,12 @@ const Routes = () => {
                 />
                 <MainArea>
                     <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>
-                    <div></div>
-                    <RoutesGroup>
-                        <Route exact path="/" element={<ReadTable selectedDb={selectedDb} selectedTable={selectedTable} />}></Route>
-                        <Route exact path="createDatabase" element={<CreateDatabase />} />
-                    </RoutesGroup>
+                    <RouteArea>
+                        <RoutesGroup>
+                            <Route exact path="/" element={<ReadTable selectedDb={selectedDb} selectedTable={selectedTable} />}></Route>
+                            <Route exact path="createDatabase" element={<CreateDatabase setDatabases={setDatabases} />} />
+                        </RoutesGroup>
+                    </RouteArea>
                 </MainArea>
             </Router>
         </View>
@@ -86,6 +87,27 @@ const MainArea = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+`;
+
+const RouteArea = styled.div`
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    //container
+    &::-webkit-scrollbar-track {
+        background-color: #424864;
+        border-radius: 6px;
+    }
+
+    //bar
+    &::-webkit-scrollbar-thumb {
+        background-color: #5b638a;
+        border-radius: 6px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
 `;
 
 const Title = styled.div`

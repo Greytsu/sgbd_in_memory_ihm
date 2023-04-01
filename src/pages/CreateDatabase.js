@@ -6,7 +6,7 @@ import styled from "styled-components";
 import TableCreation from "../components/TableCreation";
 import DatabaseService from "../services/DatabaseService";
 
-const CreateDatabase = () => {
+const CreateDatabase = (props) => {
     const [dbName, setDbName] = useState("test");
     const [savedDb, setSavedDb] = useState(0);
     const [tables, setTables] = useState([
@@ -63,6 +63,7 @@ const CreateDatabase = () => {
     useEffect(() => {
         setTimeout(() => {
             if (responseCodes.length === tables.length && responseCodes.filter((responseCode) => responseCode.responseCode === 201)) {
+                DatabaseService.getStructure(props.setDatabases);
                 tables.forEach((table) => {
                     table.columns.forEach((column) => {
                         DatabaseService.postColumn(dbName, table.name, column);
@@ -115,24 +116,6 @@ const CreateDatabase = () => {
 const View = styled.div`
     height: 100%;
     margin: 10px;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    //container
-    &::-webkit-scrollbar-track {
-        background-color: #424864;
-        border-radius: 6px;
-    }
-
-    //bar
-    &::-webkit-scrollbar-thumb {
-        background-color: #5b638a;
-        border-radius: 6px;
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
 `;
 
 const Area = styled.div`
