@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MenuItem, SubMenu } from "react-pro-sidebar";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,10 @@ const setSelectedItems = (dbName, setSelectedDb, tableName, setSelectedTable, na
 
 const SidebarMenu = (props) => {
     const navigate = useNavigate();
+    useEffect(() => {
+        console.log("props.database", props.database);
+    }, []);
+
     return (
         <>
             <SubMenu label={props.database.name} key={props.database.name}>

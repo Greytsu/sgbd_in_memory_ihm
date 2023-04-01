@@ -5,9 +5,15 @@ import styled from "styled-components";
 import DatabaseService from "../services/DatabaseService";
 import SidebarMenu from "./SidebarMenu";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Blocks } from "react-loader-spinner";
 
 const SidebarDB = (props) => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (props.database) console.log("struct", props.databases);
+    }, [props.databases]);
     return (
         <View>
             <SidebarContainer>
@@ -24,17 +30,30 @@ const SidebarDB = (props) => {
                                 <BiRefresh size="2em" />
                             </Btn>
                         </HeaderMenu>
-                        {props.databases.map((database) => {
-                            return (
-                                <SidebarMenu
-                                    database={database}
-                                    key={database.name}
-                                    setSelectedDb={props.setSelectedDb}
-                                    setSelectedTable={props.setSelectedTable}
-                                    setDatabases={props.setDatabases}
+                        {props.databases ? (
+                            props.databases.map((database) => {
+                                return (
+                                    <SidebarMenu
+                                        database={database}
+                                        key={database.name}
+                                        setSelectedDb={props.setSelectedDb}
+                                        setSelectedTable={props.setSelectedTable}
+                                        setDatabases={props.setDatabases}
+                                    />
+                                );
+                            })
+                        ) : (
+                            <BlocksContainer>
+                                <Blocks
+                                    visible={true}
+                                    height="80"
+                                    width="80"
+                                    ariaLabel="blocks-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass="blocks-wrapper"
                                 />
-                            );
-                        })}
+                            </BlocksContainer>
+                        )}
                     </Menu>
                 </Sidebar>
             </SidebarContainer>
@@ -76,4 +95,10 @@ const SidebarHeader = styled.div`
     color: #fff;
 `;
 
+const BlocksContainer = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 export default SidebarDB;

@@ -7,6 +7,7 @@ import SidebarDB from "../components/SidebarDB";
 import CreateDatabase from "../pages/CreateDatabase";
 import ReadTable from "../pages/ReadTable";
 import DatabaseService from "../services/DatabaseService";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Routes = () => {
     const [isLoading, setIsLoading] = useState();
@@ -31,7 +32,6 @@ const Routes = () => {
     useEffect(() => {
         setTimeout(() => {
             if (tables.length === databases.length && tables.length > 0) {
-                console.log(tables[0]);
                 setSelectedDb(tables[0].name);
                 setSelectedTable(tables[0].tables[0].name);
                 setStructure(tables);
@@ -60,13 +60,13 @@ const Routes = () => {
                     databases={structure}
                     setSelectedDb={setSelectedDb}
                     setSelectedTable={setSelectedTable}
-                    setDatabases={setStructure}
+                    setDatabases={setDatabases}
                 />
                 <MainArea>
                     <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>
                     <div></div>
                     <RoutesGroup>
-                        <Route exact path="/" element={<ReadTable />}></Route>
+                        <Route exact path="/" element={<ReadTable selectedDb={selectedDb} selectedTable={selectedTable} />}></Route>
                         <Route exact path="createDatabase" element={<CreateDatabase />} />
                     </RoutesGroup>
                 </MainArea>

@@ -14,14 +14,49 @@ const DatabaseService = {
             });
     },
 
-    getTables: (dbName, tables) => {
+    getTables: (dbName, structure) => {
         axios
             .get(env.API_URL + "/databases/" + dbName + "/tables")
             .then((response) => {
-                tables.push({ name: dbName, tables: response.data });
+                structure.push({ name: dbName, tables: response.data });
             })
             .catch((error) => {
                 console.log(error);
+            });
+    },
+
+    getColumns: (dbName, tableName, setColumns) => {
+        axios
+            .get(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/columns")
+            .then((response) => {
+                setColumns(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    getDatas: (dbName, tableName, setDatas) => {
+        axios
+            .get(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas")
+            .then((response) => {
+                setDatas(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    postData: (dbName, tableName, data, datas, setDatas) => {
+        console.log(data);
+        axios
+            .post(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas", data)
+            .then((response) => {
+                toast.success("Successfully inserted data");
+                setDatas({ ...datas, data });
+            })
+            .catch((error) => {
+                toast.error(error.response.data.error);
             });
     },
 
@@ -41,7 +76,7 @@ const DatabaseService = {
 
     postTable: (dbName, table, responseCodes) => {
         axios
-            .post(env.API_URL + "/databases/" + dbName + "/tables/", {
+            .post(env.API_URL + "/databases/" + dbName + "/tables", {
                 name: table.name,
             })
             .then((response) => {
