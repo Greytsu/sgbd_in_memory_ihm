@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { GiCancel } from "react-icons/gi";
-import { GrAdd } from "react-icons/gr";
+import { MdOutlineDownloadDone } from "react-icons/md";
 
 const TableLineEdit = (props) => {
     const [data, setData] = useState(props.data);
@@ -30,8 +30,8 @@ const TableLineEdit = (props) => {
                     );
                 })}
                 <td>
-                    <GrAdd />
-                    <GiCancel />
+                    <MdOutlineDownloadDone onClick={() => handleSave()} />
+                    <GiCancel onClick={() => props.setEditingLine(0)} />
                 </td>
             </tr>
         </>

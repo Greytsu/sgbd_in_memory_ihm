@@ -64,7 +64,7 @@ const ReadTable = (props) => {
                     />
                     {datas.map((data) => {
                         return data.id === editingLine ? (
-                            <TableLineEdit data={data} columns={columns} key={data.id} />
+                            <TableLineEdit data={data} columns={columns} key={data.id} setEditingLine={setEditingLine} />
                         ) : (
                             <TableLine data={data} columns={columns} key={data.id} setEditingLine={setEditingLine} />
                         );
