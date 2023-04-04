@@ -23,7 +23,10 @@ const AddLineInput = (props) => {
         return (
             <>
                 <td>
-                    <Form.Select onChange={(event) => props.handleChange(props.column.name, event.target.value === "true")}>
+                    <Form.Select
+                        className="mb-3"
+                        onChange={(event) => props.handleChange(props.column.name, event.target.value === "true")}
+                    >
                         <option>false</option>
                         <option>true</option>
                     </Form.Select>

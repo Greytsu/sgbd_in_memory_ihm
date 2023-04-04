@@ -36,9 +36,11 @@ const DatabaseService = {
             });
     },
 
-    getDatas: (dbName, tableName, setDatas) => {
+    getDatas: (dbName, tableName, setDatas, filters) => {
+        let url = env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas";
+        if (filters) url += "?filters=" + filters;
         axios
-            .get(env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas")
+            .get(url)
             .then((response) => {
                 setDatas(response.data);
             })

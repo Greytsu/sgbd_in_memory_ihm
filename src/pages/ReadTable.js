@@ -7,12 +7,14 @@ import styled from "styled-components";
 import TableLine from "../components/TableLine";
 import TableLineEdit from "../components/TableLineEdit";
 import AddLine from "../components/AddLine";
+import AddFilters from "../components/AddFilters";
 
 const ReadTable = (props) => {
     const [columns, setColumns] = useState(null);
     const [datas, setDatas] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [editingLine, setEditingLine] = useState(0);
+    const [filters, setFilters] = useState([]);
 
     useEffect(() => {
         if (props.selectedDb && props.selectedTable) {
@@ -22,15 +24,20 @@ const ReadTable = (props) => {
 
     useEffect(() => {
         if (columns != null) {
-            DatabaseService.getDatas(props.selectedDb, props.selectedTable, setDatas);
+            console.log(columns);
+            DatabaseService.getDatas(props.selectedDb, props.selectedTable, setDatas, filters.join());
         }
-    }, [columns]);
+    }, [columns, filters]);
 
     useEffect(() => {
         if (datas != null) {
             setIsLoading(false);
         }
     }, [datas]);
+
+    const addFilter = (filter) => {
+        setFilters([...filters, filter]);
+    };
 
     if (isLoading) {
         return (
@@ -42,6 +49,8 @@ const ReadTable = (props) => {
 
     return (
         <View>
+            <AddFilters columns={columns} addFilter={addFilter} />
+
             <Table striped bordered hover size="sm" variant="dark">
                 <thead>
                     <tr>
