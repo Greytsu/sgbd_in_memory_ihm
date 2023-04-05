@@ -24,8 +24,14 @@ const ReadTable = (props) => {
 
     useEffect(() => {
         if (columns != null) {
-            console.log(columns);
-            DatabaseService.getDatas(props.selectedDb, props.selectedTable, setDatas, filters.join());
+            console.log("filters: ", filters);
+            console.log("columns", columns);
+            DatabaseService.getDatas(
+                props.selectedDb,
+                props.selectedTable,
+                setDatas,
+                filters.map((filter) => filter.column + filter.operator + filter.value).join()
+            );
         }
     }, [columns, filters]);
 

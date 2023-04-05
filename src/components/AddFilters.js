@@ -61,7 +61,7 @@ const AddFilters = (props) => {
                 className="mb-3"
                 variant="primary"
                 // onClick={() => console.log({ selectedColumn: selectedColumn, selectedOperator: selectedOperator, value: filterValue })}
-                onClick={() => props.addFilter(selectedColumn + selectedOperator + filterValue)}
+                onClick={() => props.addFilter({ column: selectedColumn, operator: selectedOperator, value: filterValue })}
             >
                 add
             </Button>
