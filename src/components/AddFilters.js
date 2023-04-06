@@ -4,11 +4,21 @@ import styled from "styled-components";
 
 const AddFilters = (props) => {
     const operators = ["=", ">=", "<=", ">", "<", "!="];
-    const [selectedColumn, setSelectedColumn] = useState(props.columns[0].name);
-    const [selectedOperator, setSelectedOperator] = useState(operators[0]);
+    const [selectedColumn, setSelectedColumn] = useState();
+    const [selectedOperator, setSelectedOperator] = useState();
     const [filterValue, setFilterValue] = useState("");
 
+    useEffect(() => {
+        if (props.columns[0]) {
+            setSelectedColumn(props.columns[0].name);
+            setSelectedOperator(operators[0]);
+        }
+    }, [props.columns]);
+
+    if (props.columns === []) return;
+
     const conditionalInput = () => {
+        if (!props.columns.filter((column) => column.name === selectedColumn)[0]) return;
         const type = props.columns.filter((column) => column.name === selectedColumn)[0].type;
         if (type === "number") {
             return (
@@ -60,7 +70,6 @@ const AddFilters = (props) => {
             <Button
                 className="mb-3"
                 variant="primary"
-                // onClick={() => console.log({ selectedColumn: selectedColumn, selectedOperator: selectedOperator, value: filterValue })}
                 onClick={() => props.addFilter({ column: selectedColumn, operator: selectedOperator, value: filterValue })}
             >
                 add
@@ -73,7 +82,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 10px;
+    padding: 10px 10px 0px 10px;
     gap: 10px;
 `;
 
