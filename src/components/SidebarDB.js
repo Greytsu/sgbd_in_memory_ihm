@@ -1,12 +1,11 @@
 import { BiRefresh } from "react-icons/bi";
 import { FcAddDatabase } from "react-icons/fc";
+import { Blocks } from "react-loader-spinner";
 import { Menu, Sidebar } from "react-pro-sidebar";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DatabaseService from "../services/DatabaseService";
 import SidebarMenu from "./SidebarMenu";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Blocks } from "react-loader-spinner";
 
 const SidebarDB = (props) => {
     const navigate = useNavigate();

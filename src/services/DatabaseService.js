@@ -36,9 +36,10 @@ const DatabaseService = {
             });
     },
 
-    getDatas: (dbName, tableName, setDatas, filters) => {
+    getDatas: (dbName, tableName, setDatas, filters, sorts) => {
         let url = env.API_URL + "/databases/" + dbName + "/tables/" + tableName + "/datas";
         if (filters) url += "?filters=" + filters;
+        if (sorts) url += "?sorts=" + sorts;
         axios
             .get(url)
             .then((response) => {
@@ -127,6 +128,28 @@ const DatabaseService = {
             .catch((error) => {
                 toast.error("Error occured while creating column: " + column.name);
                 console.log(error);
+            });
+    },
+
+    deleteDatabase: (dbName) => {
+        axios
+            .delete(env.API_URL + "/databases/" + dbName)
+            .then((response) => {
+                toast.success("Successfully deleted database");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.error);
+            });
+    },
+
+    deleteTable: (dbName, tableName) => {
+        axios
+            .delete(env.API_URL + "/databases/" + dbName + "/tables/" + tableName)
+            .then((response) => {
+                toast.success("Successfully deleted table");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.error);
             });
     },
 };

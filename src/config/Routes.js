@@ -66,8 +66,16 @@ const Routes = () => {
                     <Title>{selectedDb === "" ? "Select a database" : selectedDb + "/" + selectedTable}</Title>
                     <RouteArea>
                         <RoutesGroup>
-                            <Route exact path="/" element={<ReadTable selectedDb={selectedDb} selectedTable={selectedTable} />}></Route>
-                            <Route exact path="createDatabase" element={<CreateDatabase setDatabases={setDatabases} />} />
+                            <Route
+                                exact
+                                path="/"
+                                element={<ReadTable selectedDb={selectedDb} selectedTable={selectedTable} setDatabases={setDatabases} />}
+                            ></Route>
+                            <Route
+                                exact
+                                path="createDatabase"
+                                element={<CreateDatabase setDatabases={setDatabases} structure={structure} />}
+                            />
                         </RoutesGroup>
                     </RouteArea>
                 </MainArea>

@@ -2,12 +2,12 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
 
-const Filters = (props) => {
+const Sorts = (props) => {
     return (
         <Container>
-            {props.filters.map((filter) => (
-                <Button variant="info" key={filter.column} onClick={() => props.removeFilter(filter.column)}>
-                    {filter.column + filter.operator + filter.value}
+            {props.sorts.map((sort) => (
+                <Button variant="primary" key={sort.column} onClick={() => props.removeSort(sort.column)}>
+                    {sort.column + " " + sort.value}
                 </Button>
             ))}
         </Container>
@@ -22,5 +22,4 @@ const Container = styled.div`
     padding: 0px 10px 10px 10px;
     gap: 10px;
 `;
-
-export default Filters;
+export default Sorts;

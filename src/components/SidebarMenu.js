@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MenuItem, SubMenu } from "react-pro-sidebar";
 import { useNavigate } from "react-router-dom";
 
